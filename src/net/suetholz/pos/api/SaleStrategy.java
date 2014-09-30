@@ -15,10 +15,6 @@ public interface SaleStrategy {
 
     public abstract void setCustomer(CustomerStrategy customer);
 
-    public abstract StoreStrategy getStore();
-
-    public abstract void setStore(StoreStrategy store);
-
     public abstract LineItemStrategy[] getLineItems();
 
     public abstract void addLineItem(LineItemStrategy lineItem);

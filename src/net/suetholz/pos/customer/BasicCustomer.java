@@ -14,6 +14,10 @@ import net.suetholz.pos.api.StoreStrategy;
  */
 public class BasicCustomer implements CustomerStrategy {
 
+    /**
+     * Get the customer's name
+     * @return 
+     */
     @Override
     public String getName() {
 	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
