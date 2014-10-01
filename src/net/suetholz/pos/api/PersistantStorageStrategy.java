@@ -5,10 +5,13 @@
  */
 package net.suetholz.pos.api;
 
+import net.suetholz.pos.Product;
+
 /**
  *
  * @author wsuetholz
  */
 public interface PersistantStorageStrategy {
-    
+    public abstract CustomerStrategy lookupCustomer(String customerId);
+    public abstract Product lookupProduct(String productId);
 }

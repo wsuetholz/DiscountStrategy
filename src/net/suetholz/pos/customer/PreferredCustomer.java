@@ -53,6 +53,7 @@ public class PreferredCustomer implements CustomerStrategy {
      * Set the Preferred Customer ID
      * 
      * @param id 
+     * @throws IllegalArgumentException if Id is null.
      */
     public final void setId(String id) {
 	if (id == null) {

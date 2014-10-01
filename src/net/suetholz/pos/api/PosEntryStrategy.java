@@ -6,9 +6,12 @@
 package net.suetholz.pos.api;
 
 /**
+ * Point of Sale Entry Strategy
  *
  * @author wsuetholz
+ * @version 1.00
  */
-public interface SaleInputStrategy {
-    public abstract PosEntryStrategy getInput();
+public interface PosEntryStrategy {
+
+    public abstract void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput);
 }

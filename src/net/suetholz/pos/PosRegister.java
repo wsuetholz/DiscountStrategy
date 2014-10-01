@@ -14,6 +14,7 @@
  */
 package net.suetholz.pos;
 
+import net.suetholz.pos.api.PosEntryStrategy;
 import net.suetholz.pos.api.SaleInputStrategy;
 import net.suetholz.pos.api.SaleOutputStrategy;
 import net.suetholz.pos.api.SaleStrategy;
@@ -27,16 +28,34 @@ import net.suetholz.pos.api.StoreStrategy;
  */
 public class PosRegister {
 
-    StoreStrategy store;
-    SaleStrategy currentSale;
-    SaleInputStrategy lineInput;
-    SaleOutputStrategy receiptOutput;
+    private int registerId;
+    private StoreStrategy store;
+    private SaleStrategy currentSale;
+    private SaleInputStrategy lineInput;
+    private SaleOutputStrategy receiptOutput;
+    private boolean keepRunning;
 
-    public PosRegister(StoreStrategy store, SaleInputStrategy lineInput, SaleOutputStrategy receiptOutput) {
+    public PosRegister(int registerId, StoreStrategy store, SaleInputStrategy lineInput, SaleOutputStrategy receiptOutput) {
+	setRegisterId (registerId);
 	setStore(store);
 	setLineInput(lineInput);
 	setReceiptOutput(receiptOutput);
-	currentSale = null;
+
+	// The Store object knows the proper way to allocate a sale object.
+	currentSale = store.allocateSale();
+	
+	keepRunning = true;
+    }
+
+    public final int getRegisterId() {
+	return registerId;
+    }
+
+    public final void setRegisterId(int registerId) {
+	if (registerId <= 0) {
+	    throw new IllegalArgumentException();
+	}
+	this.registerId = registerId;
     }
 
     /**
@@ -59,7 +78,7 @@ public class PosRegister {
      */
     public final void setStore(StoreStrategy store) {
 	if (store == null) {
-	    throw new IllegalArgumentException("Store can not be null!");
+	    throw new IllegalArgumentException();
 	}
 	this.store = store;
     }
@@ -88,12 +107,11 @@ public class PosRegister {
      * Validates lineInput to be non-null
      *
      * @param lineInput
-     *
      * @throws IllegalArgumentException if lineInput is null.
      */
     public final void setLineInput(SaleInputStrategy lineInput) {
-	if (receiptOutput == null) {
-	    throw new IllegalArgumentException("Receipt Output can not be null!");
+	if (lineInput == null) {
+	    throw new IllegalArgumentException();
 	}
 	this.lineInput = lineInput;
     }
@@ -114,29 +132,31 @@ public class PosRegister {
      */
     public final void setReceiptOutput(SaleOutputStrategy receiptOutput) {
 	if (receiptOutput == null) {
-	    throw new IllegalArgumentException("Receipt Output can not be null!");
+	    throw new IllegalArgumentException();
 	}
 	this.receiptOutput = receiptOutput;
     }
 
     /**
-     * Sets up the register for starting a new sale.
+     * Set the flag that indicates that the register should keep running or not
+     * 
+     * @param keepRunning 
      */
-    public final void beginNewSale() {
+    public void setKeepRunning(boolean keepRunning) {
+	this.keepRunning = keepRunning;
+    }
 
-	// If there is an existing sale, then have the store object either 
-	// save it or void it depending on if it was completed.  The Store
-	// will want to keep a history of sales.
-	if (currentSale != null) {
-	    if (currentSale.isComplete()) {
-		store.saveSale(currentSale);
-	    } else {
-		store.voidSale(currentSale);
+    /**
+     * Drive the POS Register Terminal
+     * 
+     * This is ready to be run as a thread...
+     */
+    public void run() {
+	while (keepRunning) {
+	    PosEntryStrategy posEntry = lineInput.getInput();
+	    if (posEntry != null) {
+		posEntry.processEntry(store, currentSale, receiptOutput);
 	    }
 	}
-
-	// The Store object knows the proper way to start a new sale.
-	currentSale = store.newSale();
-
     }
 }

@@ -19,7 +19,9 @@ public interface StoreStrategy {
 
     public abstract String getLocation();
 
-    public abstract SaleStrategy newSale();
+    public abstract SaleStrategy allocateSale();
+    
+    public abstract void newSale ( SaleStrategy sale );
     
     public abstract void saveSale ( SaleStrategy sale );
     

@@ -26,6 +26,12 @@ public interface SaleStrategy {
     public abstract double getTotalDiscountAmount();
 
     public abstract double getTotalSaleAmount();
-    
+
+    public abstract void setAmountTendered(double amountTendered);
+
+    public abstract double getAmountTenderd();
+
+    public abstract double getChangeAmount();
+
     public abstract boolean isComplete();
 }
