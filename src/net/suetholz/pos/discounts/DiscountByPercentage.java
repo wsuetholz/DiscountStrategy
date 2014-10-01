@@ -8,30 +8,56 @@ package net.suetholz.pos.discounts;
 import net.suetholz.pos.api.DiscountStrategy;
 
 /**
- *
+ * By Item Percentage Discount
+ * 
  * @author wsuetholz
+ * @version 1.00
  */
 public class DiscountByPercentage implements DiscountStrategy {
 
-    double pctgDiscountPerItem;
+    private double pctgDiscountPerItem;
 
+    /**
+     * Constructor for DiscountByPercentage
+     * 
+     * @param pctgDiscountPerItem 
+     */
     public DiscountByPercentage(double pctgDiscountPerItem) {
 	setPctgDiscountPerItem(pctgDiscountPerItem);
     }
 
-    public double getPctgDiscountPerItem() {
+    /**
+     * Get the per item discount percentage
+     * 
+     * @return per item discount percentage
+     */
+    public final double getPctgDiscountPerItem() {
 	return pctgDiscountPerItem;
     }
 
-    public void setPctgDiscountPerItem(double pctgDiscountPerItem) {
+    /**
+     * Set the per item discount percentage
+     * 
+     * Validate discount percent >= 0.0, set to 0.0 if invalid
+     * 
+     * @param pctgDiscountPerItem 
+     */
+    public final void setPctgDiscountPerItem(double pctgDiscountPerItem) {
 	if (pctgDiscountPerItem < 0.0) {
 	    pctgDiscountPerItem = 0.0;
 	}
 	this.pctgDiscountPerItem = pctgDiscountPerItem;
     }
 
+    /**
+     * Calculate and return the total discount amount for this discount
+     * 
+     * @param quantityPurchased
+     * @param unitCost
+     * @return total calculated discount amount
+     */
     @Override
-    public double getDiscountAmount(int quantityPurchased, double unitCost) {
+    public final double getDiscountAmount(int quantityPurchased, double unitCost) {
 	if (quantityPurchased < 0) {
 	    throw new IllegalArgumentException("QuantityPurchased must be greater then 0");
 	}

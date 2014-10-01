@@ -13,7 +13,14 @@ import net.suetholz.pos.api.DiscountStrategy;
  */
 public class NoDiscount implements DiscountStrategy {
 
-    @Override
+     /**
+     * Calculate and return the total discount amount for this discount
+     * 
+     * @param quantityPurchased
+     * @param unitCost
+     * @return total calculated discount amount
+     */
+   @Override
     public double getDiscountAmount(int quantityPurchased, double unitCost) {
 	return 0.0;
     }

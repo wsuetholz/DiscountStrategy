@@ -14,24 +14,61 @@ import net.suetholz.pos.api.StoreStrategy;
  */
 public class CorporateCustomer implements CustomerStrategy {
 
+    private String companyName;
+    private String creditCardLastFour;
+    
+    /**
+     * Get the customer's name
+     *
+     * @return Customer Name
+     */
     @Override
-    public String getName() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public final String getName() {
+	return companyName;
     }
 
+    /** 
+     * Get the last 4 of the credit card number
+     * 
+     * @return last 4 of the credit card number
+     */
     @Override
-    public String getCreditCardLastFour() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public final String getCreditCardLastFour() {
+	return creditCardLastFour;
     }
 
+    /**
+     * Get the customer greeting message
+     * 
+     * @param store
+     * @return customer greeting
+     */
     @Override
     public String getCustomerGreeting(StoreStrategy store) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	StringBuilder str = new StringBuilder("");
+	if (store != null) {
+	    str.append(store.getGreeting());
+	    str.append(" ");
+	}
+	if (this.companyName.length() > 0) {
+	    str.append(this.companyName);
+	}
+	return str.toString();
     }
 
+    /**
+     * get the customer thank you message
+     * @param store
+     * @return customer thank you message
+     */
     @Override
     public String getCustomerThankYou(StoreStrategy store) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	StringBuilder str = new StringBuilder("");
+	if (store != null) {
+	    str.append(store.getThankYou());
+	    str.append(" ");
+	}
+	return str.toString();
     }
     
 }
