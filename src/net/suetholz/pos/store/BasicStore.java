@@ -7,6 +7,7 @@ package net.suetholz.pos.store;
 
 import net.suetholz.pos.api.SaleStrategy;
 import net.suetholz.pos.api.StoreStrategy;
+import net.suetholz.pos.sales.BasicSale;
 
 /**
  *
@@ -14,44 +15,59 @@ import net.suetholz.pos.api.StoreStrategy;
  */
 public class BasicStore implements StoreStrategy {
 
+    private String greeting;
+    private String thankYou;
+    private String name;
+    private String location;
+ 
     @Override
     public String getGreeting() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return greeting;
     }
 
     @Override
     public String getThankYou() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return thankYou;
     }
 
     @Override
     public String getName() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return name;
     }
 
     @Override
     public String getLocation() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return location;
     }
 
     @Override
     public SaleStrategy allocateSale() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	BasicSale newSale = new BasicSale();
+	
+	return newSale;
     }
 
     @Override
     public void newSale(SaleStrategy sale) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (sale == null) {
+	    throw new IllegalArgumentException();
+	}
+	
+	sale.clearSale();
     }
 
     @Override
     public void saveSale(SaleStrategy sale) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (sale == null) {
+	    throw new IllegalArgumentException();	    
+	}
     }
 
     @Override
     public void voidSale(SaleStrategy sale) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (sale == null) {
+	    throw new IllegalArgumentException();	    
+	}
     }
     
 }

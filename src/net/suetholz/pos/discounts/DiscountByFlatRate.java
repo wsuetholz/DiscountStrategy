@@ -15,15 +15,17 @@ import net.suetholz.pos.api.DiscountStrategy;
  */
 public class DiscountByFlatRate implements DiscountStrategy {
 
-    double discountAmount;
+    private double discountAmount;
+    private String description;
 
     /**
      * Constructor for DiscountByFlatRate
      * 
      * @param discountAmount 
      */
-    public DiscountByFlatRate(double discountAmount) {
+    public DiscountByFlatRate(String description, double discountAmount) {
 	setDiscountAmount(discountAmount);
+	setDescription(description);
     }
 
     /** 
@@ -49,6 +51,18 @@ public class DiscountByFlatRate implements DiscountStrategy {
 	this.discountAmount = discountAmount;
     }
 
+    @Override 
+    public String getDescription() {
+	return description;
+    }
+    
+    public void setDescription (String description) {
+	if (description == null) {
+	    throw new IllegalArgumentException();
+	}
+	this.description = description;
+    }
+    
     /**
      * Calculate and return the total discount amount for this discount
      * 

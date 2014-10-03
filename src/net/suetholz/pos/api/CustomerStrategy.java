@@ -18,4 +18,5 @@ public interface CustomerStrategy {
     public abstract String getCustomerGreeting(StoreStrategy store);
 
     public abstract String getCustomerThankYou(StoreStrategy store);
+    
 }

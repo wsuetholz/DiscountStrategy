@@ -16,14 +16,16 @@ import net.suetholz.pos.api.DiscountStrategy;
 public class DiscountByPercentage implements DiscountStrategy {
 
     private double pctgDiscountPerItem;
+    private String description;
 
     /**
      * Constructor for DiscountByPercentage
      * 
      * @param pctgDiscountPerItem 
      */
-    public DiscountByPercentage(double pctgDiscountPerItem) {
+    public DiscountByPercentage(String description, double pctgDiscountPerItem) {
 	setPctgDiscountPerItem(pctgDiscountPerItem);
+	setDescription(description);
     }
 
     /**
@@ -49,6 +51,18 @@ public class DiscountByPercentage implements DiscountStrategy {
 	this.pctgDiscountPerItem = pctgDiscountPerItem;
     }
 
+    @Override 
+    public String getDescription() {
+	return description;
+    }
+    
+    public void setDescription (String description) {
+	if (description == null) {
+	    throw new IllegalArgumentException();
+	}
+	this.description = description;
+    }
+    
     /**
      * Calculate and return the total discount amount for this discount
      * 

@@ -20,13 +20,15 @@ public class BasicCustomer implements CustomerStrategy {
     private final String DEFAULT_CCLASTFOUR = "";
     private final int CCLASTFOUR_MIN_LENGTH = 4;
 
+    private String id;
     private String name;    // For our purposes, we just do not need this split into First, Middle, and Last
     private String ccLastFour;
 
     /**
      * BasicCustomer constructor
      */
-    public BasicCustomer() {
+    public BasicCustomer(String id) {
+	this.id = id;
 	name = DEFAULT_NAME;
 	ccLastFour = DEFAULT_CCLASTFOUR;
     }

@@ -34,4 +34,6 @@ public interface SaleStrategy {
     public abstract double getChangeAmount();
 
     public abstract boolean isComplete();
+    
+    public abstract void clearSale();
 }

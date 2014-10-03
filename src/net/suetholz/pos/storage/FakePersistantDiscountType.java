@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.suetholz.pos.api;
+package net.suetholz.pos.storage;
 
 /**
  *
  * @author wsuetholz
  */
-public interface DiscountStrategy {
-
-    public abstract double getDiscountAmount(int quantityPurchased, double unitCost);
-    public abstract String getDescription ();
+public enum FakePersistantDiscountType {
+    ByPercentage, ByFlatRate, ByQuantity, None
 }

@@ -17,6 +17,7 @@ import net.suetholz.pos.api.DiscountStrategy;
 public class DiscountByQuantity implements DiscountStrategy {
     private int minQuantity;
     private double discountAmount;
+    private String description;
 
     /**
      * Constructor for Discount by Quantity
@@ -24,9 +25,10 @@ public class DiscountByQuantity implements DiscountStrategy {
      * @param minQuantity
      * @param discountAmount 
      */
-    public DiscountByQuantity(int minQuantity, double discountAmount) {
+    public DiscountByQuantity(String description, int minQuantity, double discountAmount) {
 	setMinQuantity(minQuantity);
 	setDiscountAmount(discountAmount);
+	setDescription(description);
     }
 
     /**
@@ -75,6 +77,18 @@ public class DiscountByQuantity implements DiscountStrategy {
 	this.discountAmount = discountAmount;
     }
 
+    @Override 
+    public String getDescription() {
+	return description;
+    }
+    
+    public void setDescription (String description) {
+	if (description == null) {
+	    throw new IllegalArgumentException();
+	}
+	this.description = description;
+    }
+    
     /**
      * Calculate and return the total discount amount for this discount
      * 

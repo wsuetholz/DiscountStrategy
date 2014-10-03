@@ -14,8 +14,16 @@ import net.suetholz.pos.api.StoreStrategy;
  */
 public class CorporateCustomer implements CustomerStrategy {
 
+    private String id;
+
     private String companyName;
     private String creditCardLastFour;
+    
+    public CorporateCustomer(String id, String companyName) {
+	this.id = id;
+	this.companyName = companyName;
+	this.creditCardLastFour = "";
+    }
     
     /**
      * Get the customer's name

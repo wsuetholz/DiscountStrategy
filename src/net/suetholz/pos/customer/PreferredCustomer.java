@@ -6,6 +6,7 @@
 package net.suetholz.pos.customer;
 
 import net.suetholz.pos.api.CustomerStrategy;
+import net.suetholz.pos.api.DiscountStrategy;
 import net.suetholz.pos.api.StoreStrategy;
 
 /**
@@ -20,11 +21,13 @@ public class PreferredCustomer implements CustomerStrategy {
     private String id;
     private String name;    // For our purposes, we just do not need this split into First, Middle, and Last
     private String ccLastFour;
+    private DiscountStrategy discount;
 
     public PreferredCustomer(String id, String name) {
 	setId(id);
 	setName(name);
 	ccLastFour = DEFAULT_CCLASTFOUR;
+	discount = null;
     }
 
     /**
@@ -84,6 +87,18 @@ public class PreferredCustomer implements CustomerStrategy {
 	this.name = name;
     }
 
+    public final void setDiscount (DiscountStrategy discount) {
+	if (discount == null) {
+	    throw new IllegalArgumentException();
+	}
+	
+	this.discount = discount;
+    }
+    
+    public final DiscountStrategy getDiscount ( ) {
+	return discount;
+    }
+    
     /**
      * Get the customer's name
      *

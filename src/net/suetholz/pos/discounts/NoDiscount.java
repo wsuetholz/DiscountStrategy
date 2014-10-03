@@ -13,6 +13,24 @@ import net.suetholz.pos.api.DiscountStrategy;
  */
 public class NoDiscount implements DiscountStrategy {
 
+    private String description;
+    
+    public NoDiscount (String description) {
+	setDescription(description);
+    }
+    
+    @Override 
+    public String getDescription() {
+	return description;
+    }
+    
+    public void setDescription (String description) {
+	if (description == null) {
+	    throw new IllegalArgumentException();
+	}
+	this.description = description;
+    }
+    
      /**
      * Calculate and return the total discount amount for this discount
      * 
