@@ -50,7 +50,7 @@ public class Product {
      * @throws IllegalArgumentException if id string parameter is null
      */
     public final void setId(String id) {
-	if (id != null) {
+	if (id == null) {
 	    throw new IllegalArgumentException();
 	}
 	this.id = id;
@@ -74,7 +74,7 @@ public class Product {
      * @throws IllegalArgumentExecption if description parameter is null
      */
     public final void setDescription(String description) {
-	if (description != null) {
+	if (description == null) {
 	    throw new IllegalArgumentException();
 	}
 	this.description = description;
@@ -98,7 +98,7 @@ public class Product {
      * @throws IllegalArgumentException if department parameter is null
      */
     public final void setDepartment(String department) {
-	if (department != null) {
+	if (department == null) {
 	    throw new IllegalArgumentException();
 	}
 	this.department = department;

@@ -36,7 +36,7 @@ public class Main {
 	};
 
 	FakePersistantDiscount[] persistantDiscounts = {
-	    new FakePersistantDiscount("NoDisc", FakePersistantDiscountType.None, "", 0, 0.0),
+	    new FakePersistantDiscount("NoDisc", FakePersistantDiscountType.None, "No Discount", 0, 0.0),
 	    new FakePersistantDiscount("Buy3_5Dlrs", FakePersistantDiscountType.ByQuantity, "Buy 3 or More Save $5.00", 3, 5.0),
 	    new FakePersistantDiscount("15PctOff", FakePersistantDiscountType.ByPercentage, "15% Discount", 0, 15.0),
 	    new FakePersistantDiscount("Preferred5pct", FakePersistantDiscountType.ByPercentage, "Preferred Customer 15% Discount", 0, 5.0)

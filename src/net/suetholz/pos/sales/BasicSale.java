@@ -15,24 +15,50 @@ import net.suetholz.pos.api.SaleStrategy;
  */
 public class BasicSale implements SaleStrategy {
 
+    private static final int ARRAY_ELEMENTS = 10;
+    private CustomerStrategy customer;
+    private LineItemStrategy[] lineItems;
+    private int numItems;
+    private boolean complete;
+    
+    public BasicSale () {
+	complete = false;
+	lineItems = new LineItemStrategy[ARRAY_ELEMENTS];
+	numItems = 0;
+	customer = null;
+    }
+    
     @Override
     public CustomerStrategy getCustomer() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return customer;
     }
 
     @Override
     public void setCustomer(CustomerStrategy customer) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (customer == null) {
+	    throw new IllegalArgumentException();
+	}
+	this.customer = customer;
     }
 
     @Override
     public LineItemStrategy[] getLineItems() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return lineItems;
     }
 
     @Override
     public void addLineItem(LineItemStrategy lineItem) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (lineItem == null) {
+	    throw new IllegalArgumentException();
+	}
+	if (numItems >= lineItems.length) {
+	    LineItemStrategy[] tempLineItems = new LineItemStrategy[lineItems.length+ARRAY_ELEMENTS];
+	    for (int i = 0; i < numItems; i++) {
+		tempLineItems[i] = lineItems[i];
+	    }
+	    lineItems = tempLineItems;
+	}
+	lineItems[numItems++] = lineItem;
     }
 
     @Override
@@ -72,7 +98,7 @@ public class BasicSale implements SaleStrategy {
 
     @Override
     public boolean isComplete() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return complete;
     }
     
     @Override

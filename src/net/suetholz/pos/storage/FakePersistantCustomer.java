@@ -19,7 +19,7 @@ public class FakePersistantCustomer {
     private String discId;
     private CustomerStrategy customer;
     
-    public FakePersistantCustomer ( String id, String name, FakePersistantCustomerType custType, String DiscId ) {
+    public FakePersistantCustomer ( String id, String name, FakePersistantCustomerType custType, String discId ) {
 	this.id = id;
 	this.name = name;
 	this.custType = custType;
