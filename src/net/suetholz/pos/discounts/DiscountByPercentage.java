@@ -79,7 +79,7 @@ public class DiscountByPercentage implements DiscountStrategy {
 	    throw new IllegalArgumentException("UnitCost must be greater then 0.0");
 	}
 
-	return ((unitCost * pctgDiscountPerItem) * quantityPurchased);
+	return (((unitCost * pctgDiscountPerItem) * quantityPurchased) / 100);
     }
 
 }

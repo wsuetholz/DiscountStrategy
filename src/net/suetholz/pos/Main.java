@@ -54,13 +54,13 @@ public class Main {
 	finput.addProductNQuantity("Prod001", 10);
 	finput.addProductNQuantity("Prod002", 2);
 	finput.addProductNQuantity("Prod001", 1);
-	finput.addAmountTendered(10.00);
+	finput.addAmountTendered(200.00);
 	finput.addClearKey();
 	finput.addCustomer("102");
 	finput.addProductNQuantity("Prod001", 10);
 	finput.addProductNQuantity("Prod002", 2);
 	finput.addProductNQuantity("Prod001", 1);
-	finput.addAmountTendered(10.00);
+	finput.addAmountTendered(200.00);
 
 	register.run();
     }
