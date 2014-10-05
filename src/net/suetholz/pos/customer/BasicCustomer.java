@@ -95,7 +95,7 @@ public class BasicCustomer implements CustomerStrategy {
      * @return customer greeting
      */
     @Override
-    public final String getCustomerGreeting(StoreStrategy store) {
+    public final String getGreeting(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getGreeting());
@@ -113,7 +113,7 @@ public class BasicCustomer implements CustomerStrategy {
      * @return customer thank you message
      */
     @Override
-    public final String getCustomerThankYou(StoreStrategy store) {
+    public final String getThankYou(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getThankYou());

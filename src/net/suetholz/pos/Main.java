@@ -45,7 +45,7 @@ public class Main {
 
 	SaleInputStrategy input = new FakeRegisterInput(storage);
 	SaleOutputStrategy output = new ReceiptConsoleOuput();
-	StoreStrategy store = new BasicStore();
+	StoreStrategy store = new BasicStore("Kohls #2675", "Pewaukee, WI", "Welcome to Kohls", "Thank you for shopping at Kohls", 5.25);
 	PosRegister register = new PosRegister(100, store, input, output);
 
 	FakeRegisterInput finput = (FakeRegisterInput) input;

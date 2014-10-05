@@ -31,17 +31,17 @@ public class BasicLineItem implements LineItemStrategy {
     
     @Override
     public Product getProduct() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return product;
     }
 
     @Override
     public String getProductId() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return product.getId();
     }
 
     @Override
     public String getProductDesc() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return product.getDescription();
     }
 
     public void setQuantity(int quantity) {
@@ -53,22 +53,22 @@ public class BasicLineItem implements LineItemStrategy {
     
     @Override
     public int getQuantity() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return quantity;
     }
 
     @Override
     public double getUnitCost() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return product.getUnitPrice();
     }
 
     @Override
     public double getDiscountAmount() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return product.getDiscountAmount(quantity);
     }
 
     @Override
     public double getExtendedAmount() {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	return (product.getUnitPrice()*quantity);
     }
     
 }

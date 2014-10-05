@@ -19,7 +19,56 @@ public class BasicStore implements StoreStrategy {
     private String thankYou;
     private String name;
     private String location;
+    private double taxRate;
+    
+    public BasicStore (String name, String location, String greeting, String thankYou, double taxRate) {
+	setName(name);
+	setLocation(location);
+	setGreeting(greeting);
+	setThankYou(thankYou);
+	setTaxRate(taxRate);
+    }
  
+    public void setGreeting(String greeting) {
+	if (greeting == null) {
+	    throw new IllegalArgumentException();
+	}
+
+	this.greeting = greeting;
+    }
+
+    public void setThankYou(String thankYou) {
+	if (thankYou == null) {
+	    throw new IllegalArgumentException();
+	}
+
+	this.thankYou = thankYou;
+    }
+
+    public void setName(String name) {
+	if (name == null) {
+	    throw new IllegalArgumentException();
+	}
+
+	this.name = name;
+    }
+
+    public void setLocation(String location) {
+	if (location == null) {
+	    throw new IllegalArgumentException();
+	}
+
+	this.location = location;
+    }
+
+    public void setTaxRate(double taxRate) {
+	if (taxRate < 0.0) {
+	    throw new IllegalArgumentException();
+	}
+
+	this.taxRate = taxRate;
+    }
+
     @Override
     public String getGreeting() {
 	return greeting;
@@ -38,6 +87,11 @@ public class BasicStore implements StoreStrategy {
     @Override
     public String getLocation() {
 	return location;
+    }
+
+    @Override
+    public double getTaxRate() {
+	return taxRate;
     }
 
     @Override

@@ -15,8 +15,8 @@ public interface CustomerStrategy {
 
     public abstract String getCreditCardLastFour();
 
-    public abstract String getCustomerGreeting(StoreStrategy store);
+    public abstract String getGreeting(StoreStrategy store);
 
-    public abstract String getCustomerThankYou(StoreStrategy store);
+    public abstract String getThankYou(StoreStrategy store);
     
 }

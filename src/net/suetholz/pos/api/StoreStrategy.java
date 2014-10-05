@@ -18,6 +18,8 @@ public interface StoreStrategy {
     public abstract String getName();
 
     public abstract String getLocation();
+    
+    public abstract double getTaxRate();
 
     public abstract SaleStrategy allocateSale();
     

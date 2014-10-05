@@ -41,7 +41,7 @@ public class PosEntryAmountTendered implements PosEntryStrategy {
 	    throw new IllegalArgumentException();
 	}
 	
-	receiptOutput.outputReceipt (sale);
+	receiptOutput.outputReceipt (store, sale);
     }
     
 }

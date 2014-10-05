@@ -10,5 +10,5 @@ package net.suetholz.pos.api;
  * @author wsuetholz
  */
 public interface SaleOutputStrategy {
-    public abstract void outputReceipt ( SaleStrategy sale );
+    public abstract void outputReceipt ( StoreStrategy store, SaleStrategy sale );
 }

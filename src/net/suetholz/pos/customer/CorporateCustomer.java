@@ -52,7 +52,7 @@ public class CorporateCustomer implements CustomerStrategy {
      * @return customer greeting
      */
     @Override
-    public String getCustomerGreeting(StoreStrategy store) {
+    public String getGreeting(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getGreeting());
@@ -70,7 +70,7 @@ public class CorporateCustomer implements CustomerStrategy {
      * @return customer thank you message
      */
     @Override
-    public String getCustomerThankYou(StoreStrategy store) {
+    public String getThankYou(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getThankYou());
