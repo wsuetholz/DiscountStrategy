@@ -16,7 +16,7 @@ import net.suetholz.pos.api.StoreStrategy;
 public class ReceiptConsoleOuput implements SaleOutputStrategy {
 
     @Override
-    public void outputReceipt(StoreStrategy store, SaleStrategy sale) {
+    public final void outputReceipt(StoreStrategy store, SaleStrategy sale) {
 	String dashes = "----------------------------------------------------------------------------------------------------------";
 	String dbdashes = "==========================================================================================================";
 	String spaces = "                                                                                                          ";

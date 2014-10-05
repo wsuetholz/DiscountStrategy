@@ -52,11 +52,11 @@ public class DiscountByFlatRate implements DiscountStrategy {
     }
 
     @Override 
-    public String getDescription() {
+    public final String getDescription() {
 	return description;
     }
     
-    public void setDescription (String description) {
+    public final void setDescription (String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -71,7 +71,7 @@ public class DiscountByFlatRate implements DiscountStrategy {
      * @return total calculated discount amount
      */
     @Override
-    public double getDiscountAmount(int quantityPurchased, double unitCost) {
+    public final double getDiscountAmount(int quantityPurchased, double unitCost) {
 	if (quantityPurchased < 0) {
 	    throw new IllegalArgumentException("QuantityPurchased must be greater then 0");
 	}

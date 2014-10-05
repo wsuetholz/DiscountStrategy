@@ -105,7 +105,7 @@ public class PreferredCustomer implements CustomerStrategy {
      * @return
      */
     @Override
-    public String getName() {
+    public final String getName() {
 	return this.name;
     }
 
@@ -115,7 +115,7 @@ public class PreferredCustomer implements CustomerStrategy {
      * @return last 4 of the credit card number
      */
     @Override
-    public String getCreditCardLastFour() {
+    public final String getCreditCardLastFour() {
 	return this.ccLastFour;
     }
 
@@ -126,7 +126,7 @@ public class PreferredCustomer implements CustomerStrategy {
      * @return customer greeting
      */
     @Override
-    public String getGreeting(StoreStrategy store) {
+    public final String getGreeting(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getGreeting());
@@ -144,7 +144,7 @@ public class PreferredCustomer implements CustomerStrategy {
      * @return customer thank you message
      */
     @Override
-    public String getThankYou(StoreStrategy store) {
+    public final String getThankYou(StoreStrategy store) {
 	StringBuilder str = new StringBuilder("");
 	if (store != null) {
 	    str.append(store.getThankYou());

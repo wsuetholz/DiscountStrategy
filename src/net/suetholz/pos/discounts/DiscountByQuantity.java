@@ -78,11 +78,11 @@ public class DiscountByQuantity implements DiscountStrategy {
     }
 
     @Override 
-    public String getDescription() {
+    public final String getDescription() {
 	return description;
     }
     
-    public void setDescription (String description) {
+    public final void setDescription (String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();
 	}

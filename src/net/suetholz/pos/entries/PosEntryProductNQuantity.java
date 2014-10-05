@@ -23,11 +23,11 @@ public class PosEntryProductNQuantity implements PosEntryStrategy {
 	setLineItem(lineItem);
     }
 
-    public LineItemStrategy getLineItem() {
+    public final LineItemStrategy getLineItem() {
 	return lineItem;
     }
 
-    public void setLineItem(LineItemStrategy lineItem) {
+    public final void setLineItem(LineItemStrategy lineItem) {
 	if (lineItem == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -35,7 +35,7 @@ public class PosEntryProductNQuantity implements PosEntryStrategy {
     }
 
     @Override
-    public void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
+    public final void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();
 	}

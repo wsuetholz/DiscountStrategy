@@ -19,11 +19,11 @@ public class PosEntryAmountTendered implements PosEntryStrategy {
 	setAmountTendered(amountTendered);
     }
     
-    public double getAmountTendered() {
+    public final double getAmountTendered() {
 	return amountTendered;
     }
 
-    public void setAmountTendered(double amountTendered) {
+    public final void setAmountTendered(double amountTendered) {
 	if (amountTendered < 0.0) {
 	    throw new IllegalArgumentException();
 	}
@@ -31,7 +31,7 @@ public class PosEntryAmountTendered implements PosEntryStrategy {
     }
     
     @Override
-    public void processEntry(StoreStrategy store, SaleStrategy sale,SaleOutputStrategy receiptOutput) {
+    public final void processEntry(StoreStrategy store, SaleStrategy sale,SaleOutputStrategy receiptOutput) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();
 	}

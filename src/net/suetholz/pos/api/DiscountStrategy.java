@@ -12,5 +12,6 @@ package net.suetholz.pos.api;
 public interface DiscountStrategy {
 
     public abstract double getDiscountAmount(int quantityPurchased, double unitCost);
-    public abstract String getDescription ();
+
+    public abstract String getDescription();
 }

@@ -29,31 +29,31 @@ public class FakePersistantProduct {
 	this.product = null;
     }
 
-    public String getId() {
+    public final String getId() {
 	return id;
     }
 
-    public String getDescription() {
+    public final String getDescription() {
 	return description;
     }
 
-    public String getDepartment() {
+    public final String getDepartment() {
 	return department;
     }
 
-    public double getUnitPrice() {
+    public final double getUnitPrice() {
 	return unitPrice;
     }
 
-    public String getDiscId() {
+    public final String getDiscId() {
 	return discId;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
 	this.product = product;
     }
 
-    public Product getProduct() {
+    public final Product getProduct() {
 	return product;
     }
     

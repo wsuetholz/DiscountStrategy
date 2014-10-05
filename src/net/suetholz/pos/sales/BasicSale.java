@@ -32,12 +32,12 @@ public class BasicSale implements SaleStrategy {
     }
     
     @Override
-    public CustomerStrategy getCustomer() {
+    public final CustomerStrategy getCustomer() {
 	return customer;
     }
 
     @Override
-    public void setCustomer(CustomerStrategy customer) {
+    public final void setCustomer(CustomerStrategy customer) {
 	if (customer == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -45,12 +45,12 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public LineItemStrategy[] getLineItems() {
+    public final LineItemStrategy[] getLineItems() {
 	return lineItems;
     }
 
     @Override
-    public void addLineItem(LineItemStrategy lineItem) {
+    public final void addLineItem(LineItemStrategy lineItem) {
 	if (lineItem == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -65,22 +65,22 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public String getGreeting(StoreStrategy store) {
+    public final String getGreeting(StoreStrategy store) {
 	return customer.getGreeting(store);
     }
 
     @Override
-    public String getThankYou(StoreStrategy store) {
+    public final String getThankYou(StoreStrategy store) {
 	return customer.getThankYou(store);
     }
 
     @Override
-    public int getLineItemsLength() {
+    public final int getLineItemsLength() {
 	return numItems;
     }
 
     @Override
-    public String getLineItemId(int index) {
+    public final String getLineItemId(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -89,7 +89,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public String getLineItemDesc(int index) {
+    public final String getLineItemDesc(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -98,7 +98,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getLineItemUnitPrice(int index) {
+    public final double getLineItemUnitPrice(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -107,7 +107,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public int getLineItemQuantity(int index) {
+    public final int getLineItemQuantity(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -116,7 +116,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getLineItemExtendedAmount(int index) {
+    public final double getLineItemExtendedAmount(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -125,7 +125,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getLineItemDiscountAmount(int index) {
+    public final double getLineItemDiscountAmount(int index) {
 	if (index < 0 || index >= numItems) {
 	    throw new IllegalArgumentException();
 	}
@@ -134,7 +134,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getSubTotalAmount() {
+    public final double getSubTotalAmount() {
 	double subTotal = 0.0;
 	
 	for (int i = 0; i < numItems; i++) {
@@ -145,7 +145,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getTotalTaxAmount(StoreStrategy store) {
+    public final double getTotalTaxAmount(StoreStrategy store) {
 	if (store == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -154,7 +154,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getTotalDiscountAmount() {
+    public final double getTotalDiscountAmount() {
 	double discountAmount = 0.0;
 	
 	for (int i = 0; i < numItems; i++) {
@@ -165,12 +165,12 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getTotalSaleAmount() {
+    public final double getTotalSaleAmount() {
 	return (getSubTotalAmount() - getTotalDiscountAmount());
     }
 
     @Override
-    public double getTotalAmountDue(StoreStrategy store) {
+    public final double getTotalAmountDue(StoreStrategy store) {
 	if (store == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -179,7 +179,7 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public void setAmountTendered(double amountTendered) {
+    public final void setAmountTendered(double amountTendered) {
 	if (amountTendered < 0.0) {
 	    throw new IllegalArgumentException();
 	}
@@ -189,12 +189,12 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public double getAmountTenderd() {
+    public final double getAmountTenderd() {
 	return amountTendered;
     }
 
     @Override
-    public double getChangeAmount(StoreStrategy store) {
+    public final double getChangeAmount(StoreStrategy store) {
 	if (store == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -208,12 +208,12 @@ public class BasicSale implements SaleStrategy {
     }
 
     @Override
-    public boolean isComplete() {
+    public final boolean isComplete() {
 	return complete;
     }
     
     @Override
-    public void clearSale() {
+    public final void clearSale() {
 	complete = false;
 	amountTendered = 0.0;
 	for (int i = 0; i < numItems; i++) {

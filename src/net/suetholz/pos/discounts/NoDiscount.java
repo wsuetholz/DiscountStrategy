@@ -20,11 +20,11 @@ public class NoDiscount implements DiscountStrategy {
     }
     
     @Override 
-    public String getDescription() {
+    public final String getDescription() {
 	return description;
     }
     
-    public void setDescription (String description) {
+    public final void setDescription (String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -39,7 +39,7 @@ public class NoDiscount implements DiscountStrategy {
      * @return total calculated discount amount
      */
    @Override
-    public double getDiscountAmount(int quantityPurchased, double unitCost) {
+    public final double getDiscountAmount(int quantityPurchased, double unitCost) {
 	return 0.0;
     }
 

@@ -27,27 +27,27 @@ public class FakePersistantCustomer {
 	this.customer = null;
     }
 
-    public String getId() {
+    public final String getId() {
 	return id;
     }
 
-    public String getName() {
+    public final String getName() {
 	return name;
     }
 
-    public FakePersistantCustomerType getCustType() {
+    public final FakePersistantCustomerType getCustType() {
 	return custType;
     }
 
-    public String getDiscId() {
+    public final String getDiscId() {
 	return discId;
     }
 
-    public void setCustomer(CustomerStrategy customer) {
+    public final void setCustomer(CustomerStrategy customer) {
 	this.customer = customer;
     }
     
-    public CustomerStrategy getCustomer() {
+    public final CustomerStrategy getCustomer() {
 	return customer;
     }
 

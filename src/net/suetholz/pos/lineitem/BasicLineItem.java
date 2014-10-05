@@ -22,7 +22,7 @@ public class BasicLineItem implements LineItemStrategy {
 	setQuantity(quantity);
     }
     
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
 	if (product == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -30,21 +30,21 @@ public class BasicLineItem implements LineItemStrategy {
     }
     
     @Override
-    public Product getProduct() {
+    public final Product getProduct() {
 	return product;
     }
 
     @Override
-    public String getProductId() {
+    public final String getProductId() {
 	return product.getId();
     }
 
     @Override
-    public String getProductDesc() {
+    public final String getProductDesc() {
 	return product.getDescription();
     }
 
-    public void setQuantity(int quantity) {
+    public final void setQuantity(int quantity) {
 	if (quantity < 0) { 
 	    throw new IllegalArgumentException();
 	}
@@ -57,17 +57,17 @@ public class BasicLineItem implements LineItemStrategy {
     }
 
     @Override
-    public double getUnitCost() {
+    public final double getUnitCost() {
 	return product.getUnitPrice();
     }
 
     @Override
-    public double getDiscountAmount() {
+    public final double getDiscountAmount() {
 	return product.getDiscountAmount(quantity);
     }
 
     @Override
-    public double getExtendedAmount() {
+    public final double getExtendedAmount() {
 	return (product.getUnitPrice()*quantity);
     }
     

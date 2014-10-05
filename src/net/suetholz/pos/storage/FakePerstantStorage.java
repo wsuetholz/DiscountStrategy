@@ -45,7 +45,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	this.numDiscounts = this.discounts.length;
     }
 
-    private DiscountStrategy allocateDiscount(FakePersistantDiscount fakeDiscount) {
+    private final DiscountStrategy allocateDiscount(FakePersistantDiscount fakeDiscount) {
 	if (fakeDiscount == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -72,7 +72,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	return discount;
     }
 
-    private void addDiscount(FakePersistantDiscount discount) {
+    private final void addDiscount(FakePersistantDiscount discount) {
 	if (discount == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -89,7 +89,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	discounts[numDiscounts++] = discount;
     }
 
-    public DiscountStrategy lookupDiscount(String discId) {
+    public final DiscountStrategy lookupDiscount(String discId) {
 	if (discId == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -113,7 +113,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	return discount;
     }
 
-    private CustomerStrategy allocateCustomer(FakePersistantCustomer fakeCustomer) {
+    private final CustomerStrategy allocateCustomer(FakePersistantCustomer fakeCustomer) {
 	if (fakeCustomer == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -144,7 +144,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	return customer;
     }
 
-    public void addCustomer(FakePersistantCustomer customer) {
+    public final void addCustomer(FakePersistantCustomer customer) {
 	if (customer == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -162,7 +162,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
     }
 
     @Override
-    public CustomerStrategy lookupCustomer(String customerId) {
+    public final CustomerStrategy lookupCustomer(String customerId) {
 	if (customerId == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -187,7 +187,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	return customer;
     }
 
-    public void addProduct(FakePersistantProduct product) {
+    public final void addProduct(FakePersistantProduct product) {
 	if (product == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -204,7 +204,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
 	products[numProducts++] = product;
     }
 
-    private Product allocateProduct (FakePersistantProduct fakeProduct) {
+    private final Product allocateProduct (FakePersistantProduct fakeProduct) {
 	if (fakeProduct == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -217,7 +217,7 @@ public class FakePerstantStorage implements PersistantStorageStrategy {
     }
     
     @Override
-    public Product lookupProduct(String productId) {
+    public final Product lookupProduct(String productId) {
 	if (productId == null) {
 	    throw new IllegalArgumentException();
 	}

@@ -121,7 +121,7 @@ public class PosRegister {
      *
      * @return current receipt output strategy
      */
-    public SaleOutputStrategy getReceiptOutput() {
+    public final SaleOutputStrategy getReceiptOutput() {
 	return receiptOutput;
     }
 
@@ -142,7 +142,7 @@ public class PosRegister {
      * 
      * @param keepRunning 
      */
-    public void setKeepRunning(boolean keepRunning) {
+    public final void setKeepRunning(boolean keepRunning) {
 	this.keepRunning = keepRunning;
     }
 
@@ -151,7 +151,7 @@ public class PosRegister {
      * 
      * This is ready to be run as a thread...
      */
-    public void run() {
+    public final void run() {
 	while (keepRunning) {
 	    PosEntryStrategy posEntry = lineInput.getInput();
 	    if (posEntry != null) {

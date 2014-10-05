@@ -9,7 +9,7 @@ import net.suetholz.pos.api.DiscountStrategy;
 
 /**
  * By Item Percentage Discount
- * 
+ *
  * @author wsuetholz
  * @version 1.00
  */
@@ -20,8 +20,8 @@ public class DiscountByPercentage implements DiscountStrategy {
 
     /**
      * Constructor for DiscountByPercentage
-     * 
-     * @param pctgDiscountPerItem 
+     *
+     * @param pctgDiscountPerItem
      */
     public DiscountByPercentage(String description, double pctgDiscountPerItem) {
 	setPctgDiscountPerItem(pctgDiscountPerItem);
@@ -30,7 +30,7 @@ public class DiscountByPercentage implements DiscountStrategy {
 
     /**
      * Get the per item discount percentage
-     * 
+     *
      * @return per item discount percentage
      */
     public final double getPctgDiscountPerItem() {
@@ -39,10 +39,10 @@ public class DiscountByPercentage implements DiscountStrategy {
 
     /**
      * Set the per item discount percentage
-     * 
+     *
      * Validate discount percent >= 0.0, set to 0.0 if invalid
-     * 
-     * @param pctgDiscountPerItem 
+     *
+     * @param pctgDiscountPerItem
      */
     public final void setPctgDiscountPerItem(double pctgDiscountPerItem) {
 	if (pctgDiscountPerItem < 0.0) {
@@ -51,21 +51,21 @@ public class DiscountByPercentage implements DiscountStrategy {
 	this.pctgDiscountPerItem = pctgDiscountPerItem;
     }
 
-    @Override 
-    public String getDescription() {
+    @Override
+    public final String getDescription() {
 	return description;
     }
-    
-    public void setDescription (String description) {
+
+    public final void setDescription(String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();
 	}
 	this.description = description;
     }
-    
+
     /**
      * Calculate and return the total discount amount for this discount
-     * 
+     *
      * @param quantityPurchased
      * @param unitCost
      * @return total calculated discount amount

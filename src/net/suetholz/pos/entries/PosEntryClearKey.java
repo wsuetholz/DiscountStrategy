@@ -21,7 +21,7 @@ import net.suetholz.pos.api.StoreStrategy;
 public class PosEntryClearKey implements PosEntryStrategy {
 
     @Override
-    public void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
+    public final void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();
 	}

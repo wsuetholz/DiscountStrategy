@@ -30,31 +30,31 @@ public class FakePersistantDiscount {
 	this.discount = null;
     }
 
-    public FakePersistantDiscountType getDiscType() {
+    public final FakePersistantDiscountType getDiscType() {
 	return discType;
     }
 
-    public String getId() {
+    public final String getId() {
 	return id;
     }
     
-    public String getDescription() {
+    public final String getDescription() {
 	return description;
     }
     
-    public int getDiscNumber() {
+    public final int getDiscNumber() {
 	return discNumber;
     }
 
-    public double getDiscDouble() {
+    public final double getDiscDouble() {
 	return discDouble;
     }
 
-    public DiscountStrategy getDiscount() {
+    public final DiscountStrategy getDiscount() {
 	return discount;
     }
    
-    public void setDiscount(DiscountStrategy discount) {
+    public final void setDiscount(DiscountStrategy discount) {
 	this.discount = discount;
     }
     

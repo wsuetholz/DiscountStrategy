@@ -89,7 +89,7 @@ public class FakeRegisterInput implements SaleInputStrategy {
     }
     
     @Override
-    public PosEntryStrategy getInput() {
+    public final PosEntryStrategy getInput() {
 	if (posIndex >= posNumEntries) {
 	    try {
 		Thread.sleep(5000);

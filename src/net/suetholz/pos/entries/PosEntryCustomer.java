@@ -23,11 +23,11 @@ public class PosEntryCustomer implements PosEntryStrategy {
 	setCustomer(customer);
     }
 
-    public CustomerStrategy getCustomer() {
+    public final CustomerStrategy getCustomer() {
 	return customer;
     }
 
-    public void setCustomer(CustomerStrategy customer) {
+    public final void setCustomer(CustomerStrategy customer) {
 	if (customer == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -35,7 +35,7 @@ public class PosEntryCustomer implements PosEntryStrategy {
     }
     
     @Override
-    public void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
+    public final void processEntry(StoreStrategy store, SaleStrategy sale, SaleOutputStrategy receiptOutput) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();
 	}

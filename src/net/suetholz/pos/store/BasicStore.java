@@ -29,7 +29,7 @@ public class BasicStore implements StoreStrategy {
 	setTaxRate(taxRate);
     }
  
-    public void setGreeting(String greeting) {
+    public final void setGreeting(String greeting) {
 	if (greeting == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -37,7 +37,7 @@ public class BasicStore implements StoreStrategy {
 	this.greeting = greeting;
     }
 
-    public void setThankYou(String thankYou) {
+    public final void setThankYou(String thankYou) {
 	if (thankYou == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -45,7 +45,7 @@ public class BasicStore implements StoreStrategy {
 	this.thankYou = thankYou;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
 	if (name == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -53,7 +53,7 @@ public class BasicStore implements StoreStrategy {
 	this.name = name;
     }
 
-    public void setLocation(String location) {
+    public final void setLocation(String location) {
 	if (location == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -61,7 +61,7 @@ public class BasicStore implements StoreStrategy {
 	this.location = location;
     }
 
-    public void setTaxRate(double taxRate) {
+    public final void setTaxRate(double taxRate) {
 	if (taxRate < 0.0) {
 	    throw new IllegalArgumentException();
 	}
@@ -70,39 +70,39 @@ public class BasicStore implements StoreStrategy {
     }
 
     @Override
-    public String getGreeting() {
+    public final String getGreeting() {
 	return greeting;
     }
 
     @Override
-    public String getThankYou() {
+    public final String getThankYou() {
 	return thankYou;
     }
 
     @Override
-    public String getName() {
+    public final String getName() {
 	return name;
     }
 
     @Override
-    public String getLocation() {
+    public final String getLocation() {
 	return location;
     }
 
     @Override
-    public double getTaxRate() {
+    public final double getTaxRate() {
 	return taxRate;
     }
 
     @Override
-    public SaleStrategy allocateSale() {
+    public final SaleStrategy allocateSale() {
 	BasicSale newSale = new BasicSale();
 	
 	return newSale;
     }
 
     @Override
-    public void newSale(SaleStrategy sale) {
+    public final void newSale(SaleStrategy sale) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();
 	}
@@ -111,14 +111,14 @@ public class BasicStore implements StoreStrategy {
     }
 
     @Override
-    public void saveSale(SaleStrategy sale) {
+    public final void saveSale(SaleStrategy sale) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();	    
 	}
     }
 
     @Override
-    public void voidSale(SaleStrategy sale) {
+    public final void voidSale(SaleStrategy sale) {
 	if (sale == null) {
 	    throw new IllegalArgumentException();	    
 	}
