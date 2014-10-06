@@ -6,8 +6,10 @@
 package net.suetholz.pos.storage;
 
 /**
- *
+ * Defines the Discount Types
+ * 
  * @author wsuetholz
+ * @version 1.00
  */
 public enum FakePersistantDiscountType {
     ByPercentage, ByFlatRate, ByQuantity, None

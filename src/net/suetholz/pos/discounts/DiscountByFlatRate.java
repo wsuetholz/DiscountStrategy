@@ -21,6 +21,7 @@ public class DiscountByFlatRate implements DiscountStrategy {
     /**
      * Constructor for DiscountByFlatRate
      * 
+     * @param description 
      * @param discountAmount 
      */
     public DiscountByFlatRate(String description, double discountAmount) {
@@ -51,11 +52,22 @@ public class DiscountByFlatRate implements DiscountStrategy {
 	this.discountAmount = discountAmount;
     }
 
+    /**
+     * Return the description of the discount
+     * 
+     * @return discount description
+     */
     @Override 
     public final String getDescription() {
 	return description;
     }
     
+    /**
+     * Set the description of the discount
+     * 
+     * @param description 
+     * @throws IllegalArgumentException if description is null
+     */
     public final void setDescription (String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();

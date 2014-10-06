@@ -9,8 +9,10 @@ import net.suetholz.pos.api.CustomerStrategy;
 import net.suetholz.pos.api.StoreStrategy;
 
 /**
- *
+ * This is a custom Customer Strategy defining a Corporate Customer
+ * 
  * @author wsuetholz
+ * @version 1.00
  */
 public class CorporateCustomer implements CustomerStrategy {
 

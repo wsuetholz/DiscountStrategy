@@ -6,8 +6,10 @@
 package net.suetholz.pos.storage;
 
 /**
- *
+ * Defines the Customer Types
+ * 
  * @author wsuetholz
+ * @version 1.00
  */
 public enum FakePersistantCustomerType {
     Basic, Preferred, Corporate

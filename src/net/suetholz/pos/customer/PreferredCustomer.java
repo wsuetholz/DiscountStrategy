@@ -10,8 +10,10 @@ import net.suetholz.pos.api.DiscountStrategy;
 import net.suetholz.pos.api.StoreStrategy;
 
 /**
+ * This is a custom Customer Strategy defining a Corporate Customer
  *
  * @author wsuetholz
+ * @version 1.00
  */
 public class PreferredCustomer implements CustomerStrategy {
 
@@ -87,6 +89,12 @@ public class PreferredCustomer implements CustomerStrategy {
 	this.name = name;
     }
 
+    /**
+     * Set the Preferred Customer Discount Strategy
+     * 
+     * @param discount 
+     * @throws IllegalArgumentException when discount is null
+     */
     public final void setDiscount (DiscountStrategy discount) {
 	if (discount == null) {
 	    throw new IllegalArgumentException();
@@ -95,6 +103,11 @@ public class PreferredCustomer implements CustomerStrategy {
 	this.discount = discount;
     }
     
+    /**
+     * Get the Preferred Customer Discount
+     * 
+     * @return discount 
+     */
     public final DiscountStrategy getDiscount ( ) {
 	return discount;
     }

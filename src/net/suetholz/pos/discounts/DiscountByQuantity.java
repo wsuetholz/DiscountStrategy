@@ -77,11 +77,22 @@ public class DiscountByQuantity implements DiscountStrategy {
 	this.discountAmount = discountAmount;
     }
 
+    /**
+     * Return the description of the discount
+     * 
+     * @return discount description
+     */
     @Override 
     public final String getDescription() {
 	return description;
     }
     
+    /**
+     * Set the description of the discount
+     * 
+     * @param description 
+     * @throws IllegalArgumentException if description is null
+     */
     public final void setDescription (String description) {
 	if (description == null) {
 	    throw new IllegalArgumentException();
